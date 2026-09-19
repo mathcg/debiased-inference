@@ -90,7 +90,7 @@ def test_studentized_band_has_variable_width():
 
 
 def test_studentized_requires_boolean():
-    with pytest.raises(ValueError, match="boolean"):
+    with pytest.raises(TypeError, match="boolean"):
         kde_confidence_band(
             [-1.0, 0.0, 1.0], [0.0], bandwidth=0.5,
             n_boot=2, studentized="yes",

@@ -97,7 +97,7 @@ def kde_confidence_band(
     """
     confidence, n_boot = bootstrap_parameters(confidence, n_boot)
     if not isinstance(studentized, (bool, np.bool_)):
-        raise ValueError("studentized must be boolean")
+        raise TypeError("studentized must be boolean")
     samples = as_samples(x)
     evaluation = as_evaluation_points(points, samples, grid_size=grid_size)
     selected = (
