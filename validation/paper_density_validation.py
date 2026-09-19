@@ -222,7 +222,9 @@ def main() -> None:
     if arguments.output:
         arguments.output.parent.mkdir(parents=True, exist_ok=True)
         with arguments.output.open("w", newline="", encoding="utf-8") as stream:
-            writer = csv.DictWriter(stream, fieldnames=list(summaries[0]))
+            writer = csv.DictWriter(
+                stream, fieldnames=list(summaries[0]), lineterminator="\n"
+            )
             writer.writeheader()
             writer.writerows(summaries)
 
