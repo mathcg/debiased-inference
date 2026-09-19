@@ -7,8 +7,8 @@ authors:
     given-names: Gang
   - family-names: Chen
     given-names: Yen-Chi
-version: 0.1.0
-date-released: 2026-09-18
+version: 0.1.1
+date-released: 2026-09-19
 license: MIT
 repository-code: "https://github.com/mathcg/debiased-inference"
 url: "https://github.com/mathcg/debiased-inference"

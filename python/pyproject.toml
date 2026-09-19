@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "debiased-inference"
-version = "0.1.0"
+version = "0.1.1"
 description = "Bootstrap inference with debiased nonparametric estimators"
 readme = "README.md"
 requires-python = ">=3.10"

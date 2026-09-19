@@ -1,0 +1,2 @@
+study,method,sample_size,bandwidth_factor,replications,bootstrap_replicates,coverage,coverage_ci_low,coverage_ci_high,mean_band_radius,mean_bandwidth,paper_coverage,paper_mean_band_radius
+table1,debiased,500,1,100,199,0.95,0.888249530768081,0.978456320845632,0.0868569725470556,0.0376888394912845,0.976,0.09

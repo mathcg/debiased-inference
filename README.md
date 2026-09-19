@@ -13,8 +13,10 @@ simultaneous confidence bands. The R and Python packages intentionally expose
 matching function names and defaults.
 
 See the [paper analysis](docs/paper-analysis.md), [statistical
-specification](docs/methods.md), and [API guide](docs/api.md) for the reasoning,
-implementation conventions, and complete workflow.
+specification](docs/methods.md), [published-simulation validation
+report](docs/validation-report.md), and [API guide](docs/api.md) for the
+reasoning, implementation conventions, numerical evidence, and complete
+workflow.
 
 ## Layout
 
@@ -46,7 +48,7 @@ band = kde_confidence_band(x, n_boot=499, random_state=2026)
 
 ```r
 install.packages(
-  "https://github.com/mathcg/debiased-inference/releases/download/v0.1.0/debiasedInference_0.1.0.tar.gz",
+  "https://github.com/mathcg/debiased-inference/releases/download/v0.1.1/debiasedInference_0.1.1.tar.gz",
   repos = NULL,
   type = "source"
 )
@@ -59,7 +61,7 @@ band <- kde_confidence_band(x, n_boot = 499, random_state = 2026)
 
 ## Scope
 
-Version `0.1.0` implements the Gaussian-kernel procedures analyzed and used in the
+Version `0.1.1` implements the Gaussian-kernel procedures analyzed and used in the
 paper. Confidence bands are simultaneous over the supplied evaluation grid;
 the grid is therefore part of the numerical approximation and should cover the
 scientific domain of interest densely.

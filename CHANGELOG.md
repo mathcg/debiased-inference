@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.1 — 2026-09-19
+
+- Validate density and regression confidence bands against the published EJS
+  simulations in both R and Python.
+- Match density defaults to the paper's Gaussian normal-scale bandwidth rule.
+- Expand the default regression cross-validation range so high-curvature
+  designs do not truncate the optimum.
+- Clarify that the paper's tabulated band width is the bootstrap band radius.
+
 ## 0.1.0 — 2026-09-18
 
 - Add Gaussian debiased KDE for one- and multi-dimensional samples.
