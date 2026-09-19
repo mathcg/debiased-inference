@@ -54,6 +54,16 @@ def test_regression_bandwidth_is_a_candidate_and_reproducible():
     assert first == second
 
 
+def test_default_regression_bandwidth_search_is_not_truncated_for_curved_signal():
+    rng = np.random.default_rng(7)
+    x = rng.uniform(-1.0, 1.0, 500)
+    denominator = 1.0 + 18.0 * x**2 * (np.sign(x) + 1.0)
+    y = np.sin(1.5 * np.pi * x) / denominator + rng.normal(0.0, 0.1, x.size)
+    base = min(float(np.std(x, ddof=1)), float(np.ptp(x)) / 4.0) * x.size ** (-0.2)
+    selected = regression_bandwidth(x, y, random_state=8)
+    assert selected < 0.35 * base
+
+
 def test_paired_bootstrap_band_is_reproducible_and_fixed_width():
     x = np.linspace(-1.0, 1.0, 35)
     y = np.sin(np.pi * x) + 0.1 * np.cos(7 * x)

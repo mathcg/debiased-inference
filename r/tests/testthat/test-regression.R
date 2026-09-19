@@ -34,6 +34,16 @@ test_that("regression bandwidth is reproducible and is a candidate", {
   expect_identical(first, second)
 })
 
+test_that("default bandwidth search is not truncated for a curved signal", {
+  set.seed(7)
+  x <- stats::runif(500, -1, 1)
+  denominator <- 1 + 18 * x^2 * (sign(x) + 1)
+  y <- sin(1.5 * pi * x) / denominator + stats::rnorm(500, 0, 0.1)
+  base <- min(stats::sd(x), diff(range(x)) / 4) * length(x)^(-0.2)
+  selected <- regression_bandwidth(x, y, random_state = 8)
+  expect_lt(selected, 0.35 * base)
+})
+
 test_that("paired-bootstrap regression band is fixed-width", {
   x <- seq(-1, 1, length.out = 35)
   y <- sin(pi * x) + 0.1 * cos(7 * x)

@@ -31,3 +31,9 @@ between the lower and upper endpoints is twice this value.
 through the public R API. The manually dispatched `Validate published
 simulations` GitHub workflow runs it on a clean Linux R installation and saves
 the summary as a workflow artifact.
+
+`paper_regression_validation.py` reproduces the sine-regression design from
+Figure 7 or the published debiased-CV column from Tables 1 and 2. It uses the
+public `regression_bandwidth` and `regression_confidence_band` APIs throughout.
+`paper_regression_validation.R` provides an independent R replication of the
+`n = 500` Table 1 configuration.

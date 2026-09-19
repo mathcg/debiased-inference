@@ -107,7 +107,10 @@ def regression_bandwidth(
     if candidates is None:
         scale = min(float(np.std(x_values, ddof=1)), float(np.ptp(x_values)) / 4.0)
         base = max(scale * n ** (-1.0 / 5.0), np.finfo(float).eps)
-        candidate_values = base * np.geomspace(0.35, 2.5, 21)
+        # The lower end must accommodate the small CV bandwidths selected for
+        # the high-curvature regression designs in the paper.  The former
+        # 0.35 lower multiplier caused the optimizer to stop at its boundary.
+        candidate_values = base * np.geomspace(0.1, 3.0, 31)
     else:
         candidate_values = as_vector(candidates, name="candidates")
         if np.any(candidate_values <= 0):

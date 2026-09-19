@@ -98,7 +98,9 @@ regression_bandwidth <- function(x, y, candidates = NULL, n_folds = 5L,
   if (is.null(candidates)) {
     scale <- min(stats::sd(x), diff(range(x)) / 4)
     base <- max(scale * n^(-1 / 5), .Machine$double.eps)
-    candidates <- base * exp(seq(log(0.35), log(2.5), length.out = 21L))
+    # Include the small CV bandwidths selected for the paper's high-curvature
+    # regression designs; a narrower range can truncate the optimum.
+    candidates <- base * exp(seq(log(0.1), log(3), length.out = 31L))
   } else {
     candidates <- .as_vector(candidates, "candidates")
     if (any(candidates <= 0)) stop("candidates must be positive", call. = FALSE)
