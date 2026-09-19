@@ -1,0 +1,20 @@
+bibentry(
+  bibtype = "Article",
+  title = "Nonparametric Inference via Bootstrapping the Debiased Estimator",
+  author = c(
+    person("Gang", "Cheng"),
+    person("Yen-Chi", "Chen")
+  ),
+  journal = "Electronic Journal of Statistics",
+  year = "2019",
+  volume = "13",
+  number = "1",
+  doi = "10.1214/19-EJS1575",
+  url = "https://doi.org/10.1214/19-EJS1575",
+  textVersion = paste(
+    "Cheng, G. and Chen, Y.-C. (2019).",
+    "Nonparametric inference via bootstrapping the debiased estimator.",
+    "Electronic Journal of Statistics, 13(1).",
+    "doi:10.1214/19-EJS1575"
+  )
+)

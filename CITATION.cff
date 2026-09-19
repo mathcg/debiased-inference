@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "Please cite the paper and this software when using this implementation."
+title: "debiasedInference: Bootstrap inference with debiased nonparametric estimators"
+type: software
+authors:
+  - family-names: Cheng
+    given-names: Gang
+  - family-names: Chen
+    given-names: Yen-Chi
+version: 0.1.0
+date-released: 2026-09-18
+license: MIT
+preferred-citation:
+  type: article
+  title: "Nonparametric Inference via Bootstrapping the Debiased Estimator"
+  authors:
+    - family-names: Cheng
+      given-names: Gang
+    - family-names: Chen
+      given-names: Yen-Chi
+  year: 2019
+  journal: "Electronic Journal of Statistics"
+  volume: 13
+  issue: 1
+  doi: "10.1214/19-EJS1575"
+  identifiers:
+    - type: doi
+      value: "10.1214/19-EJS1575"
+    - type: url
+      value: "https://arxiv.org/abs/1702.07027"

@@ -1,0 +1,16 @@
+.DS_Store
+.Rhistory
+.RData
+.Rproj.user/
+*.Rcheck/
+/*.tar.gz
+python/.pytest_cache/
+python/.coverage
+python/.mypy_cache/
+python/.ruff_cache/
+python/.venv/
+python/build/
+python/dist/
+python/src/*.egg-info/
+__pycache__/
+*.py[cod]
