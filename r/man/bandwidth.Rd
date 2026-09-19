@@ -8,7 +8,7 @@ method. Density estimation uses a normal-reference rule and regression uses
 K-fold cross-validation of the ordinary local-linear smoother. In one
 dimension, the density rule is
 \eqn{(4/(3n))^{1/5}\,\mathrm{sd}(x)}, matching the paper's use of the
-normal-scale selector from the pkg{ks} package.
+normal-scale selector from the \pkg{ks} package.
 }
 \usage{
 density_bandwidth(x, method = "normal_reference", candidates = NULL,
