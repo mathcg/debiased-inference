@@ -7,6 +7,10 @@ Estimator”](https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2F
 If you use these methods or this software, please cite the paper (Electronic
 Journal of Statistics 13(1), 2019; doi:10.1214/19-EJS1575).
 
+```console
+python -m pip install debiased-inference
+```
+
 ```python
 import numpy as np
 from debiased_inference import kde_confidence_band

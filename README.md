@@ -1,6 +1,7 @@
 # debiasedInference
 
 [![CI](https://github.com/mathcg/debiased-inference/actions/workflows/ci.yml/badge.svg)](https://github.com/mathcg/debiased-inference/actions/workflows/ci.yml)
+[![PyPI](https://img.shields.io/pypi/v/debiased-inference.svg)](https://pypi.org/project/debiased-inference/)
 
 Reference R and Python implementations for Gang Cheng and Yen-Chi Chen,
 [“Nonparametric Inference via Bootstrapping the Debiased
@@ -28,11 +29,8 @@ sizes; their headers show the paper-scale settings.
 
 ## Python quick start
 
-```bash
-git clone https://github.com/mathcg/debiased-inference.git
-cd debiased-inference/python
-python -m pip install -e '.[test]'
-pytest
+```console
+python -m pip install debiased-inference
 ```
 
 ```python
