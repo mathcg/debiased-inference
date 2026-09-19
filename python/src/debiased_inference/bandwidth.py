@@ -17,9 +17,10 @@ def density_bandwidth(
 ) -> float:
     """Select an isotropic bandwidth for the ordinary KDE.
 
-    ``method="normal_reference"`` uses Silverman's robust rule
-    ``0.9 min(sd, IQR / 1.34) n^(-1/5)``. In higher dimensions the scalar
-    scale is the geometric mean of positive marginal robust scales and the
+    ``method="normal_reference"`` uses the Gaussian normal-scale rule used by
+    the paper's ``ks`` implementation. In one dimension this is
+    ``(4 / (3 n))^(1/5) * sd``. In higher dimensions the scalar scale is the
+    geometric mean of positive marginal standard deviations and the
     normal-reference dimension adjustment is used.
 
     ``method="cv"`` minimizes the least-squares cross-validation criterion
@@ -32,19 +33,12 @@ def density_bandwidth(
         raise ValueError("method must be 'normal_reference' or 'cv'")
     n, dimension = samples.shape
     standard_deviation = np.std(samples, axis=0, ddof=1)
-    quartiles = np.percentile(samples, [25, 75], axis=0)
-    robust = (quartiles[1] - quartiles[0]) / 1.34
-    scales = np.minimum(standard_deviation, robust)
-    scales = np.where(scales > 0, scales, standard_deviation)
-    positive = scales[scales > 0]
+    positive = standard_deviation[standard_deviation > 0]
     if positive.size == 0:
         raise ValueError("cannot select bandwidth from zero-scale data")
     scale = float(np.exp(np.mean(np.log(positive))))
-    if dimension == 1:
-        factor = 0.9 * n ** (-1.0 / 5.0)
-    else:
-        factor = (4.0 / (dimension + 2.0)) ** (1.0 / (dimension + 4.0))
-        factor *= n ** (-1.0 / (dimension + 4.0))
+    factor = (4.0 / (dimension + 2.0)) ** (1.0 / (dimension + 4.0))
+    factor *= n ** (-1.0 / (dimension + 4.0))
     reference = positive_scalar(scale * factor, name="selected bandwidth")
     if method == "normal_reference":
         if candidates is not None:

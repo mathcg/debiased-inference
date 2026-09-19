@@ -1,8 +1,8 @@
 #' Select an ordinary density-estimation bandwidth
 #'
-#' Uses Silverman's robust rule in one dimension and an isotropic
-#' normal-reference rule in higher dimensions. Bandwidth selection is for the
-#' ordinary estimator, as required by the paper.
+#' Uses the Gaussian normal-scale rule used by the paper's `ks`
+#' implementation. In one dimension this is `(4 / (3 n))^(1/5) * sd`.
+#' Bandwidth selection is for the ordinary estimator, as required by the paper.
 #' @param x Numeric observations or a numeric matrix with observations in rows.
 #' @param method Either `"normal_reference"` or `"cv"`.
 #' @param candidates Optional positive candidate bandwidths for cross-validation.
@@ -19,23 +19,13 @@ density_bandwidth <- function(x, method = "normal_reference", candidates = NULL,
   n <- nrow(samples)
   dimension <- ncol(samples)
   standard_deviation <- apply(samples, 2L, stats::sd)
-  quartiles <- apply(samples, 2L, stats::quantile,
-                     probs = c(0.25, 0.75), names = FALSE, type = 7)
-  if (dimension == 1L) quartiles <- matrix(quartiles, nrow = 2L)
-  robust <- (quartiles[2L, ] - quartiles[1L, ]) / 1.34
-  scales <- pmin(standard_deviation, robust)
-  scales[scales <= 0] <- standard_deviation[scales <= 0]
-  positive <- scales[scales > 0]
+  positive <- standard_deviation[standard_deviation > 0]
   if (length(positive) == 0L) {
     stop("cannot select bandwidth from zero-scale data", call. = FALSE)
   }
   scale <- exp(mean(log(positive)))
-  if (dimension == 1L) {
-    factor <- 0.9 * n^(-1 / 5)
-  } else {
-    factor <- (4 / (dimension + 2))^(1 / (dimension + 4)) *
-      n^(-1 / (dimension + 4))
-  }
+  factor <- (4 / (dimension + 2))^(1 / (dimension + 4)) *
+    n^(-1 / (dimension + 4))
   reference <- .positive_scalar(scale * factor, "selected bandwidth")
   if (method == "normal_reference") {
     if (!is.null(candidates)) {

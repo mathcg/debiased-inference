@@ -43,6 +43,12 @@ test_that("density CV bandwidth selects a candidate", {
   expect_true(selected %in% candidates)
 })
 
+test_that("density bandwidth matches the paper normal-scale rule", {
+  x <- c(-2, -1, 0, 1, 2)
+  expected <- stats::sd(x) * (4 / (3 * length(x)))^(1 / 5)
+  expect_equal(density_bandwidth(x), expected)
+})
+
 test_that("fixed-width bootstrap band is reproducible and symmetric", {
   x <- c(-1.2, -0.7, -0.2, 0.1, 0.4, 0.9, 1.3)
   points <- seq(-1, 1, length.out = 15)

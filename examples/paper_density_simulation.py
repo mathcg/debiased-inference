@@ -47,7 +47,7 @@ def main() -> None:
         widths.append(float(np.mean(band.width)))
 
     print(f"coverage={covered / arguments.replications:.4f}")
-    print(f"mean_band_width={np.mean(widths):.6f}")
+    print(f"mean_band_radius={np.mean(widths) / 2.0:.6f}")
 
 
 if __name__ == "__main__":

@@ -31,4 +31,4 @@ for (replication in seq_len(replications)) {
 }
 
 cat(sprintf("coverage=%.4f\n", mean(covered)))
-cat(sprintf("mean_band_width=%.6f\n", mean(widths)))
+cat(sprintf("mean_band_radius=%.6f\n", mean(widths) / 2))

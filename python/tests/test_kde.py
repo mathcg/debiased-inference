@@ -53,6 +53,12 @@ def test_density_bandwidth_is_positive_for_partially_degenerate_multivariate_dat
     assert density_bandwidth(x) > 0
 
 
+def test_density_bandwidth_matches_paper_normal_scale_rule():
+    x = np.array([-2.0, -1.0, 0.0, 1.0, 2.0])
+    expected = np.std(x, ddof=1) * (4.0 / (3.0 * x.size)) ** (1.0 / 5.0)
+    assert density_bandwidth(x) == pytest.approx(expected)
+
+
 def test_density_cv_bandwidth_selects_a_candidate():
     x = np.array([-1.2, -0.9, -0.4, 0.1, 0.2, 0.8, 1.4])
     candidates = np.array([0.2, 0.4, 0.8])

@@ -5,6 +5,10 @@ Notation follows Cheng and Chen, [*Nonparametric Inference via Bootstrapping the
 Debiased Estimator*](https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2F19-EJS1575),
 Electronic Journal of Statistics 13(1), doi:10.1214/19-EJS1575.
 
+The default density bandwidth is the Gaussian normal-scale rule used by the
+paper's `ks` implementation. In one dimension it is
+`(4 / (3 n))^(1/5) * sd`, approximately `1.06 * sd * n^(-1/5)`.
+
 ## Debiased kernel density estimation
 
 For observations in `d` dimensions, scalar bandwidth `h`, and `tau = h / b`,
