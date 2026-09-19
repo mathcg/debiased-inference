@@ -1,8 +1,12 @@
 # Paper analysis and implementation map
 
-Source reviewed: arXiv:1702.07027v3 (63 pages), including the estimator
-definitions, algorithms, assumptions, theorems, simulation study, astronomy
-application, proofs, and supplementary simulations.
+Canonical source: Cheng and Chen (2019), [*Nonparametric Inference via
+Bootstrapping the Debiased
+Estimator*](https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2F19-EJS1575),
+Electronic Journal of Statistics 13(1), doi:10.1214/19-EJS1575. The analysis
+covers the estimator definitions, algorithms, assumptions, theorems,
+simulation study, astronomy application, proofs, and supplementary
+simulations.
 
 ## Central idea
 

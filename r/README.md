@@ -1,7 +1,11 @@
 # debiasedInference
 
 R implementation of the procedures in Cheng and Chen,
-“Nonparametric Inference via Bootstrapping the Debiased Estimator.”
+[“Nonparametric Inference via Bootstrapping the Debiased
+Estimator”](https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2F19-EJS1575).
+
+If you use these methods or this software, please cite the paper (Electronic
+Journal of Statistics 13(1), 2019; doi:10.1214/19-EJS1575).
 
 ```r
 library(debiasedInference)

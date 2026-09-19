@@ -3,7 +3,8 @@
 [![CI](https://github.com/mathcg/debiased-inference/actions/workflows/ci.yml/badge.svg)](https://github.com/mathcg/debiased-inference/actions/workflows/ci.yml)
 
 Reference R and Python implementations for Gang Cheng and Yen-Chi Chen,
-“Nonparametric Inference via Bootstrapping the Debiased Estimator.”
+[“Nonparametric Inference via Bootstrapping the Debiased
+Estimator”](https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2F19-EJS1575).
 
 The project implements the paper's debiased kernel density estimator and
 debiased local-linear regression estimator, together with empirical-bootstrap
@@ -64,3 +65,16 @@ Version `0.1.0` implements the Gaussian-kernel procedures analyzed and used in t
 paper. Confidence bands are simultaneous over the supplied evaluation grid;
 the grid is therefore part of the numerical approximation and should cover the
 scientific domain of interest densely.
+
+## Citation
+
+If you use these methods or this software in your work, please cite the paper:
+
+> Cheng, G. and Chen, Y.-C. (2019). Nonparametric inference via bootstrapping
+> the debiased estimator. *Electronic Journal of Statistics*, 13(1).
+> https://doi.org/10.1214/19-EJS1575
+
+The [published paper on Project
+Euclid](https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2F19-EJS1575)
+is the canonical methodological reference for this repository. Citation
+metadata is also available in [`CITATION.cff`](CITATION.cff).

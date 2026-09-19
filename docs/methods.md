@@ -1,8 +1,9 @@
 # Statistical specification
 
 This document is the shared source of truth for the R and Python packages.
-Notation follows Cheng and Chen, *Nonparametric Inference via Bootstrapping the
-Debiased Estimator*, arXiv:1702.07027v3.
+Notation follows Cheng and Chen, [*Nonparametric Inference via Bootstrapping the
+Debiased Estimator*](https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2F19-EJS1575),
+Electronic Journal of Statistics 13(1), doi:10.1214/19-EJS1575.
 
 ## Debiased kernel density estimation
 

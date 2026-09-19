@@ -34,7 +34,7 @@ dev = ["ruff>=0.6"]
 Homepage = "https://github.com/mathcg/debiased-inference"
 Repository = "https://github.com/mathcg/debiased-inference.git"
 Issues = "https://github.com/mathcg/debiased-inference/issues"
-Paper = "https://arxiv.org/abs/1702.07027"
+Paper = "https://projecteuclid.org/journalArticle/Download?urlId=10.1214%2F19-EJS1575"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/debiased_inference"]
