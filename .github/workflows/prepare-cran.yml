@@ -17,6 +17,8 @@ jobs:
           use-public-rspm: true
       - uses: r-lib/actions/setup-pandoc@v2
       - uses: r-lib/actions/setup-tinytex@v2
+        env:
+          TINYTEX_INSTALLER: TinyTeX
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           working-directory: r
@@ -27,8 +29,16 @@ jobs:
       - name: Check source package
         run: R CMD check --as-cran debiasedInference_*.tar.gz
       - name: Upload CRAN source package
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: debiasedInference-cran-source
           path: debiasedInference_*.tar.gz
           if-no-files-found: error
+      - name: Upload check diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debiasedInference-check-results
+          path: debiasedInference.Rcheck/
+          if-no-files-found: ignore
