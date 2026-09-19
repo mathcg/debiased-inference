@@ -31,6 +31,9 @@ test = ["pytest>=7", "pytest-cov>=4"]
 dev = ["ruff>=0.6"]
 
 [project.urls]
+Homepage = "https://github.com/mathcg/debiased-inference"
+Repository = "https://github.com/mathcg/debiased-inference.git"
+Issues = "https://github.com/mathcg/debiased-inference/issues"
 Paper = "https://arxiv.org/abs/1702.07027"
 
 [tool.hatch.build.targets.wheel]

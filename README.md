@@ -1,5 +1,7 @@
 # debiasedInference
 
+[![CI](https://github.com/mathcg/debiased-inference/actions/workflows/ci.yml/badge.svg)](https://github.com/mathcg/debiased-inference/actions/workflows/ci.yml)
+
 Reference R and Python implementations for Gang Cheng and Yen-Chi Chen,
 “Nonparametric Inference via Bootstrapping the Debiased Estimator.”
 
@@ -26,7 +28,8 @@ sizes; their headers show the paper-scale settings.
 ## Python quick start
 
 ```bash
-cd python
+git clone https://github.com/mathcg/debiased-inference.git
+cd debiased-inference/python
 python -m pip install -e '.[test]'
 pytest
 ```
@@ -43,7 +46,11 @@ band = kde_confidence_band(x, n_boot=499, random_state=2026)
 ## R quick start
 
 ```r
-install.packages("r", repos = NULL, type = "source")
+install.packages(
+  "https://github.com/mathcg/debiased-inference/releases/download/v0.1.0/debiasedInference_0.1.0.tar.gz",
+  repos = NULL,
+  type = "source"
+)
 library(debiasedInference)
 
 set.seed(2026)
