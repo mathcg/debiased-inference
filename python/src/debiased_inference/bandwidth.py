@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from typing import Optional
-
 import numpy as np
 from numpy.typing import ArrayLike
 
@@ -14,7 +12,7 @@ def density_bandwidth(
     x: ArrayLike,
     *,
     method: str = "normal_reference",
-    candidates: Optional[ArrayLike] = None,
+    candidates: ArrayLike | None = None,
     block_size: int = 512,
 ) -> float:
     """Select an isotropic bandwidth for the ordinary KDE.
@@ -90,9 +88,9 @@ def regression_bandwidth(
     x: ArrayLike,
     y: ArrayLike,
     *,
-    candidates: Optional[ArrayLike] = None,
+    candidates: ArrayLike | None = None,
     n_folds: int = 5,
-    random_state: Optional[int] = 0,
+    random_state: int | None = 0,
 ) -> float:
     """Select a local-linear bandwidth by deterministic K-fold CV.
 

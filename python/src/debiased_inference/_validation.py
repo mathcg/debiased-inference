@@ -2,11 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Optional
-
 import numpy as np
 from numpy.typing import ArrayLike, NDArray
-
 
 FloatArray = NDArray[np.float64]
 
@@ -36,7 +33,7 @@ def as_vector(x: ArrayLike, *, name: str) -> FloatArray:
 
 
 def as_evaluation_points(
-    points: Optional[ArrayLike], samples: FloatArray, *, grid_size: int = 200
+    points: ArrayLike | None, samples: FloatArray, *, grid_size: int = 200
 ) -> FloatArray:
     """Validate or generate evaluation points with the samples' dimension."""
     dimension = samples.shape[1]

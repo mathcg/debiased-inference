@@ -3,8 +3,6 @@
 from __future__ import annotations
 
 import math
-from typing import Optional
-
 import numpy as np
 from numpy.typing import ArrayLike
 
@@ -59,13 +57,13 @@ def _debiased_regression_values(
 def debiased_local_linear(
     x: ArrayLike,
     y: ArrayLike,
-    points: Optional[ArrayLike] = None,
+    points: ArrayLike | None = None,
     *,
-    bandwidth: Optional[float] = None,
+    bandwidth: float | None = None,
     tau: float = 1.0,
     grid_size: int = 200,
     n_folds: int = 5,
-    random_state: Optional[int] = 0,
+    random_state: int | None = 0,
 ) -> EstimateResult:
     """Evaluate the paper's debiased one-dimensional local-linear smoother."""
     x_values = as_vector(x, name="x")
@@ -102,16 +100,16 @@ def debiased_local_linear(
 def regression_confidence_band(
     x: ArrayLike,
     y: ArrayLike,
-    points: Optional[ArrayLike] = None,
+    points: ArrayLike | None = None,
     *,
-    bandwidth: Optional[float] = None,
+    bandwidth: float | None = None,
     tau: float = 1.0,
     confidence: float = 0.95,
     n_boot: int = 999,
-    random_state: Optional[int] = None,
+    random_state: int | None = None,
     grid_size: int = 200,
     n_folds: int = 5,
-    max_attempts: Optional[int] = None,
+    max_attempts: int | None = None,
 ) -> ConfidenceBandResult:
     """Construct a simultaneous paired-bootstrap regression band."""
     confidence, n_boot = bootstrap_parameters(confidence, n_boot)

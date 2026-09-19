@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from typing import Optional
-
 import numpy as np
 from numpy.typing import ArrayLike, NDArray
 
@@ -44,9 +42,9 @@ def _estimate_from_matrix(matrix: FloatArray, bandwidth: float, dimension: int) 
 
 def debiased_kde(
     x: ArrayLike,
-    points: Optional[ArrayLike] = None,
+    points: ArrayLike | None = None,
     *,
-    bandwidth: Optional[float] = None,
+    bandwidth: float | None = None,
     tau: float = 1.0,
     grid_size: int = 200,
 ) -> EstimateResult:
@@ -81,14 +79,14 @@ def debiased_kde(
 
 def kde_confidence_band(
     x: ArrayLike,
-    points: Optional[ArrayLike] = None,
+    points: ArrayLike | None = None,
     *,
-    bandwidth: Optional[float] = None,
+    bandwidth: float | None = None,
     tau: float = 1.0,
     confidence: float = 0.95,
     n_boot: int = 999,
     studentized: bool = False,
-    random_state: Optional[int] = None,
+    random_state: int | None = None,
     grid_size: int = 200,
 ) -> ConfidenceBandResult:
     """Construct a simultaneous empirical-bootstrap band for a density.
