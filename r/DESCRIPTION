@@ -4,7 +4,7 @@ Title: Bootstrap Inference with Debiased Nonparametric Estimators
 Version: 0.1.0
 Authors@R: c(
     person("Gang", "Cheng", role = c("aut", "cre"),
-           email = "gangc@uw.edu"),
+           email = "mathchenggang@gmail.com"),
     person("Yen-Chi", "Chen", role = "aut",
            email = "yenchic@uw.edu")
   )
